@@ -12,27 +12,8 @@ import (
 // through environment variables. Learn more through the documentation of the envconfig package.
 // https://github.com/kelseyhightower/envconfig
 type Specification struct {
-	ClusterName                            string   `required:"true" split_words:"true"`
-	LabelFilter                            []string `required:"false" split_words:"true" default:"controller-revision-hash,pod-template-generation,pod-template-hash"`
-	ActiveAdviceList                       []string `required:"false" split_words:"true" default:"*"`
-	AdviceSingleReplicaMinReplicas         int      `json:"adviceSingleReplicaMinReplicas" split_words:"true" required:"false" default:"2"`
-	DisableDiscoveryExcludes               bool     `required:"false" split_words:"true" default:"false"`
-	LogKubernetesHttpRequests              bool     `required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledContainer             bool     `json:"discoveryDisabledContainer" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledDeployment            bool     `json:"discoveryDisabledDeployment" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledStatefulSet           bool     `json:"discoveryDisabledStatefulSet" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledDaemonSet             bool     `json:"discoveryDisabledDaemonSet" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledPod                   bool     `json:"discoveryDisabledPod" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledNode                  bool     `json:"discoveryDisabledNode" required:"false" split_words:"true" default:"false"`
-	DiscoveryDisabledCluster               bool     `json:"discoveryDisabledCluster" required:"false" split_words:"true" default:"false"`
-	DiscoveryAttributesExcludesContainer   []string `json:"discoveryAttributesExcludesContainer" split_words:"true" required:"false"`
-	DiscoveryAttributesExcludesDeployment  []string `json:"discoveryAttributesExcludesDeployment" split_words:"true" required:"false"`
-	DiscoveryAttributesExcludesStatefulSet []string `json:"discoveryAttributesExcludesStatefulSet" split_words:"true" required:"false"`
-	DiscoveryAttributesExcludesDaemonSet   []string `json:"discoveryAttributesExcludesDaemonSet" split_words:"true" required:"false"`
-	DiscoveryAttributesExcludesPod         []string `json:"discoveryAttributesExcludesPod" split_words:"true" required:"false"`
-	DiscoveryAttributesExcludesNode        []string `json:"discoveryAttributesExcludesNode" split_words:"true" required:"false"`
-	DiscoveryMaxPodCount                   int      `json:"discoveryMaxPodCount" split_words:"true" required:"false" default:"50"`
-	Namespace                              string   `json:"namespace" split_words:"true" required:"false" default:""`
+	ClusterName string `required:"true" split_words:"true"`
+	Namespace   string `json:"namespace" split_words:"true" required:"false" default:""`
 }
 
 var (
@@ -47,9 +28,6 @@ func ParseConfiguration() {
 }
 
 func ValidateConfiguration() {
-	if Config.DisableDiscoveryExcludes {
-		log.Info().Msg("Discovery excludes are disabled. Will also discover workloads labeled with steadybit.com/discovery-disabled=true.")
-	}
 }
 
 func IsUsingRoleBasedAccessControl() bool { //instead of ClusterRole

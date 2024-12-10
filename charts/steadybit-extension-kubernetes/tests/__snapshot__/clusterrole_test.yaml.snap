@@ -4,7 +4,7 @@ manifest should match snapshot:
     kind: ClusterRole
     metadata:
       labels: null
-      name: steadybit-extension-kubernetes
+      name: steadybit-extension-kubernetes-kubectl-example
     rules:
       - apiGroups:
           - ""

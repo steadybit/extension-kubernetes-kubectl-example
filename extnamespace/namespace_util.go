@@ -2,9 +2,7 @@ package extnamespace
 
 import (
 	"fmt"
-	"github.com/steadybit/extension-kubernetes/client"
-	"github.com/steadybit/extension-kubernetes/extconfig"
-	"golang.org/x/exp/slices"
+	"github.com/steadybit/extension-kubernetes-kubectl-example/client"
 )
 
 func AddNamespaceLabels(k8s *client.Client, namespace string, attributes map[string][]string) map[string][]string {
@@ -14,10 +12,8 @@ func AddNamespaceLabels(k8s *client.Client, namespace string, attributes map[str
 			if ns.Name == namespace {
 				namespaceMetadata := ns.ObjectMeta
 				for key, value := range namespaceMetadata.Labels {
-					if !slices.Contains(extconfig.Config.LabelFilter, key) {
-						attributes[fmt.Sprintf("k8s.namespace.label.%v", key)] = []string{value}
-						attributes[fmt.Sprintf("k8s.label.%v", key)] = []string{value}
-					}
+					attributes[fmt.Sprintf("k8s.namespace.label.%v", key)] = []string{value}
+					attributes[fmt.Sprintf("k8s.label.%v", key)] = []string{value}
 				}
 				break
 			}

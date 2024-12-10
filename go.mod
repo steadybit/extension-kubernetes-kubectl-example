@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: 2022 Steadybit GmbH
 
-module github.com/steadybit/extension-kubernetes
+module github.com/steadybit/extension-kubernetes-kubectl-example
 
 go 1.23.0
 

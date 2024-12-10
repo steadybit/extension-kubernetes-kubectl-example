@@ -14,15 +14,15 @@ with the following text to agree our CLA: "I have read the CLA Document and I he
 ## Local installation in Minikube
 
 - `make container`
-- `minikube image load extension-kubernetes:latest`
+- `minikube image load extension-kubernetes-kubectl-example:latest`
 - ```
-  helm upgrade steadybit-extension-kubernetes \
+  helm upgrade steadybit-extension-kubernetes-kubectl-example \
   --install \
   --create-namespace \
   --namespace steadybit-agent \
   --set kubernetes.clusterName=minikube \
-  --set image.name=extension-kubernetes \
+  --set image.name=extension-kubernetes-kubectl-example \
   --set image.tag=latest \
   --set image.pullPolicy=Never \
-  ./charts/steadybit-extension-kubernetes
+  ./charts/steadybit-extension-kubernetes-kubectl-example
   ```

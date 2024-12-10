@@ -1,1 +1,0 @@
-When Kubernetes redeploys *${target.attr('steadybit.label')}*, it always fetches the container image and thus ensures running the identical versions of *${target.attr('steadybit.label')}*'s container.

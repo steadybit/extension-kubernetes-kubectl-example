@@ -1,5 +1,5 @@
-/extension-kubernetes
-extension-kubernetes.iml
+/extension-kubernetes-kubectl-example
+extension-kubernetes-kubectl-example.iml
 /coverage.out
 go.docker.mod
 /e2e/e2e-coverage-docker.out

@@ -8,14 +8,14 @@ manifest should match snapshot using podAnnotations and Labels:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
@@ -23,7 +23,7 @@ manifest should match snapshot using podAnnotations and Labels:
             some-annotation: some-annotation-value
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             some-label: some-label-value
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
@@ -39,7 +39,7 @@ manifest should match snapshot using podAnnotations and Labels:
                   value: test
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -78,7 +78,7 @@ manifest should match snapshot using podAnnotations and Labels:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with TLS:
   1: |
@@ -88,21 +88,21 @@ manifest should match snapshot with TLS:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -121,7 +121,7 @@ manifest should match snapshot with TLS:
                   value: test
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -163,7 +163,7 @@ manifest should match snapshot with TLS:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes:
             - name: certificate-server-cert
               secret:
@@ -177,21 +177,21 @@ manifest should match snapshot with attribute excluded:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -218,7 +218,7 @@ manifest should match snapshot with attribute excluded:
                   value: k8s.label.*,attribute.123.node
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -257,7 +257,7 @@ manifest should match snapshot with attribute excluded:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with clusterName from parent chart:
   1: |
@@ -267,21 +267,21 @@ manifest should match snapshot with clusterName from parent chart:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -296,7 +296,7 @@ manifest should match snapshot with clusterName from parent chart:
                   value: test
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -335,7 +335,7 @@ manifest should match snapshot with clusterName from parent chart:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with disabled excludes:
   1: |
@@ -345,21 +345,21 @@ manifest should match snapshot with disabled excludes:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -376,7 +376,7 @@ manifest should match snapshot with disabled excludes:
                   value: "true"
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -415,7 +415,7 @@ manifest should match snapshot with disabled excludes:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with extra env vars:
   1: |
@@ -425,21 +425,21 @@ manifest should match snapshot with extra env vars:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -461,7 +461,7 @@ manifest should match snapshot with extra env vars:
                   name: env-configmap
                 - name: env-secrets
                   secretRef: null
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -500,7 +500,7 @@ manifest should match snapshot with extra env vars:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with extra labels:
   1: |
@@ -511,21 +511,21 @@ manifest should match snapshot with extra labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
         tags.datadoghq.com/service: steadybit-extension
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
             tags.datadoghq.com/service: steadybit-extension
@@ -541,7 +541,7 @@ manifest should match snapshot with extra labels:
                   value: null
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -580,7 +580,7 @@ manifest should match snapshot with extra labels:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with mutual TLS:
   1: |
@@ -590,21 +590,21 @@ manifest should match snapshot with mutual TLS:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -625,7 +625,7 @@ manifest should match snapshot with mutual TLS:
                   value: test
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -670,7 +670,7 @@ manifest should match snapshot with mutual TLS:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes:
             - name: certificate-client-cert-a
               secret:
@@ -688,21 +688,21 @@ manifest should match snapshot with mutual TLS using containerPaths:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -723,7 +723,7 @@ manifest should match snapshot with mutual TLS using containerPaths:
                   value: null
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -762,7 +762,7 @@ manifest should match snapshot with mutual TLS using containerPaths:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with podSecurityContext:
   1: |
@@ -772,21 +772,21 @@ manifest should match snapshot with podSecurityContext:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -801,7 +801,7 @@ manifest should match snapshot with podSecurityContext:
                   value: null
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -841,7 +841,7 @@ manifest should match snapshot with podSecurityContext:
             runAsUser: 2222
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot with priority class:
   1: |
@@ -851,21 +851,21 @@ manifest should match snapshot with priority class:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -880,7 +880,7 @@ manifest should match snapshot with priority class:
                   value: null
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -920,7 +920,7 @@ manifest should match snapshot with priority class:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null
 manifest should match snapshot without TLS:
   1: |
@@ -930,21 +930,21 @@ manifest should match snapshot without TLS:
       labels:
         steadybit.com/discovery-disabled: "true"
         steadybit.com/extension: "true"
-      name: RELEASE-NAME-steadybit-extension-kubernetes
+      name: RELEASE-NAME-steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     spec:
       replicas: 1
       selector:
         matchLabels:
           app.kubernetes.io/instance: RELEASE-NAME
-          app.kubernetes.io/name: steadybit-extension-kubernetes
+          app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
       template:
         metadata:
           annotations:
             oneagent.dynatrace.com/injection: "false"
           labels:
             app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: steadybit-extension-kubernetes
+            app.kubernetes.io/name: steadybit-extension-kubernetes-kubectl-example
             steadybit.com/discovery-disabled: "true"
             steadybit.com/extension: "true"
         spec:
@@ -959,7 +959,7 @@ manifest should match snapshot without TLS:
                   value: test
                 - name: STEADYBIT_EXTENSION_DISCOVERY_MAX_POD_COUNT
                   value: "50"
-              image: ghcr.io/steadybit/extension-kubernetes:v0.0.0
+              image: ghcr.io/steadybit/extension-kubernetes-kubectl-example:v0.0.0
               imagePullPolicy: IfNotPresent
               livenessProbe:
                 failureThreshold: 5
@@ -998,5 +998,5 @@ manifest should match snapshot without TLS:
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
-          serviceAccountName: steadybit-extension-kubernetes
+          serviceAccountName: steadybit-extension-kubernetes-kubectl-example
           volumes: null

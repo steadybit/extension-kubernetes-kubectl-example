@@ -8,7 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/rs/zerolog/log"
-	"github.com/steadybit/extension-kubernetes/extconfig"
+	"github.com/steadybit/extension-kubernetes-kubectl-example/extconfig"
 	"golang.org/x/exp/slices"
 	appsv1 "k8s.io/api/apps/v1"
 	autoscalingv2 "k8s.io/api/autoscaling/v2"
@@ -28,7 +28,6 @@ import (
 	"k8s.io/client-go/util/homedir"
 	"path/filepath"
 	"sort"
-	"strings"
 	"sync"
 	"time"
 )
@@ -564,7 +563,7 @@ func createClientset() (*kubernetes.Clientset, string) {
 		log.Fatal().Err(err).Msgf("Could not find kubernetes config")
 	}
 
-	config.UserAgent = "steadybit-extension-kubernetes"
+	config.UserAgent = "steadybit-extension-kubernetes-kubectl-example"
 	config.Timeout = time.Second * 10
 	clientset, err := kubernetes.NewForConfig(config)
 	if err != nil {
@@ -579,20 +578,4 @@ func createClientset() (*kubernetes.Clientset, string) {
 	log.Info().Msgf("Cluster connected! Kubernetes Server Version %+v", info)
 
 	return clientset, config.APIPath
-}
-
-func IsExcludedFromDiscovery(objectMeta metav1.ObjectMeta) bool {
-	discoveryEnabled, keyExists := objectMeta.Labels["steadybit.com/discovery-disabled"]
-	if keyExists && strings.ToLower(discoveryEnabled) == "true" {
-		return true
-	}
-	discoveryEnabled, keyExists = objectMeta.Labels["steadybit.com.discovery-disabled"]
-	if keyExists && strings.ToLower(discoveryEnabled) == "true" {
-		return true
-	}
-	steadybitAgent, steadybitAgentKeyExists := objectMeta.Labels["com.steadybit.agent"]
-	if steadybitAgentKeyExists && strings.ToLower(steadybitAgent) == "true" {
-		return true
-	}
-	return false
 }

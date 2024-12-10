@@ -4,13 +4,13 @@ manifest should match snapshot:
     kind: RoleBinding
     metadata:
       labels: null
-      name: steadybit-extension-kubernetes
+      name: steadybit-extension-kubernetes-kubectl-example
       namespace: NAMESPACE
     roleRef:
       apiGroup: rbac.authorization.k8s.io
       kind: Role
-      name: steadybit-extension-kubernetes
+      name: steadybit-extension-kubernetes-kubectl-example
     subjects:
       - kind: ServiceAccount
-        name: steadybit-extension-kubernetes
+        name: steadybit-extension-kubernetes-kubectl-example
         namespace: NAMESPACE
