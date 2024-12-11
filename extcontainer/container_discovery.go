@@ -28,7 +28,7 @@ var (
 	_ discovery_kit_sdk.TargetDiscovery = (*containerDiscovery)(nil)
 )
 
-const KubernetesContainerTargetType = "com.steadybit.extension_kubernetes-kubectl-example.kubernetes-container-demo"
+const KubernetesContainerTargetType = "com.steadybit.extension_kubernetes_kubectl_example.container"
 
 func NewContainerDiscovery(ctx context.Context, k8s *client.Client) discovery_kit_sdk.TargetDiscovery {
 	discovery := &containerDiscovery{k8s: k8s}
